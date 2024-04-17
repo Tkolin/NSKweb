@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="ru" data-bs-theme="auto">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>СиБНИПИ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.css" rel="stylesheet">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .text-ca6702 {
+            color: #001219 !important;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /*АОС*/
+        [data-aos] {
+            opacity: 0;
+            transition-property: opacity;
+        }
+
+        [data-aos].aos-animate {
+            opacity: 1;
+        }
+
+        /*Карусель*/
+        /* Добавить стили для анимации появления и исчезания */
+        .fade-out {
+            opacity: 0.8;
+            transform: scale(1.2) ;
+            filter: blur(5px);
+        }
+
+        .fade-in {
+            filter: blur(0px);
+            opacity: 1;
+            transform: scale(1) ;
+            transition: opacity 1s, transform 2s, filter 2s;
+        }
+
+        .fade-caption-out {
+            opacity: 0;
+            transform: translateX(+5%) ;
+        }
+
+        .fade-caption-in {
+            opacity: 1;
+            transform: translateX(0%)  ;
+            transition: transform 2s, opacity 2s;
+        }
+
+        /* Добавить стили для анимации исчезания и появления навигационных стрелок */
+        .carousel-control-prev,
+        .carousel-control-next {
+            transition: opacity 0.9s;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            opacity: 0.1;
+        }
+
+        /* Carousel base class */
+        .carousel {
+            margin-bottom: 4rem;
+        }
+
+        /* Since positioning the image, we need to help out the caption */
+        .carousel-caption {
+            bottom: 3rem;
+            z-index: 10;
+        }
+
+        /* Declare heights because of positioning of img element */
+        .carousel-item {
+            height: 32rem;
+        }
+
+        .text-carousel-main{
+            color: #EBF2FA;
+        }
+        .carousel-background {
+         }
+    </style>
+</head>
+<body>
+
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+            id="bd-theme"
+            type="button"
+            aria-expanded="false"
+            data-bs-toggle="dropdown"
+            aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+            <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                    aria-pressed="false">
+                <svg class="bi me-2 opacity-50" width="1em" height="1em">
+                    <use href="#sun-fill"></use>
+                </svg>
+                Light
+                <svg class="bi ms-auto d-none" width="1em" height="1em">
+                    <use href="#check2"></use>
+                </svg>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                    aria-pressed="false">
+                <svg class="bi me-2 opacity-50" width="1em" height="1em">
+                    <use href="#moon-stars-fill"></use>
+                </svg>
+                Dark
+                <svg class="bi ms-auto d-none" width="1em" height="1em">
+                    <use href="#check2"></use>
+                </svg>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
+                    aria-pressed="true">
+                <svg class="bi me-2 opacity-50" width="1em" height="1em">
+                    <use href="#circle-half"></use>
+                </svg>
+                Auto
+                <svg class="bi ms-auto d-none" width="1em" height="1em">
+                    <use href="#check2"></use>
+                </svg>
+            </button>
+        </li>
+    </ul>
+</div>
+
+<!--https://coolors.co/palette/004e64-00a5cf-9fffcb-25a18e-7ae582-->
+<header data-bs-theme="dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #064789">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="resources/logoAndName.png" height="32" width="32"/></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Домой</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Сылка</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Сылка</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Поиск..." aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Найти</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main style="background-color: #EBF2FA">
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner ">
+            <div class="carousel-item active">
+                <div class="carousel-background">
+                    <img class="carousel-background" height="1402" width="2272"
+                         src="resources/carousel1.png"
+                         style="object-fit: cover; transform: translateY(-20%); width: 100%; height: 100%; filter: brightness(0.7);"/>
+                </div>
+                <div class="carousel-caption text-end"
+                     style="left: 0; right: 0;">
+                    <div style="background: linear-gradient(-90deg, rgba(66, 122, 161,0.9) 0%, rgba(6, 71, 137,0) 100%); padding: 20px; padding-right: 100px">
+                        <h1 class="text-carousel-main">Проектирование</h1>
+                        <p class="text-white">Описание</p>
+                        <p><a class="text-white" href="#">Подробней</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-background" style="object-position: top;">
+                    <img class="carousel-background"
+                            src="resources/carousel2.jpg" height="1367" width="2048"
+                            style="object-fit: cover; transform: translateY(-20%); width: 100%; height: 100%; filter: brightness(0.7);"/>
+                </div>
+
+                <div class="carousel-caption text-end"
+                     style="left: 0; right: 0;">
+                    <div style="background: linear-gradient(-90deg, rgba(66, 122, 161,0.9) 0%, rgba(6, 71, 137,0) 100%); padding: 20px; padding-right: 100px">
+                        <h1 class="text-carousel-main">Инженерные изыскания</h1>
+                        <p class="text-white">Описание</p>
+                        <p><a class="text-white" href="#">Подробней</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-background">
+                    <img src="resources/carousel3.jpg"  height="3744" width="5616"
+                         style="object-fit: cover; transform: translateY(-20%); width: 100%; height: 100%; filter: brightness(0.7);"/>
+                </div>
+                <div class="carousel-caption text-end"
+                     style="left: 0; right: 0;">
+                    <div style="background: linear-gradient(-90deg, rgba(66, 122, 161,0.9) 0%, rgba(6, 71, 137,0) 100%); padding: 20px; padding-right: 100px">
+                        <h1 class="text-carousel-main">Иследования</h1>
+                        <p class="text-white">Описание</p>
+                        <p><a class="text-white" href="#">Подробней</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+<!--https://coolors.co/palette/064789-427aa1-ebf2fa-679436-a5be00-->
+
+    <div class="container marketing" style="background-color:">
+        <hr class="featurette-divider" data-aos="fade-right" data-aos-duration="500">
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <div class="text-center">
+                    <h2 class="featurette-heading fw-normal lh-1" data-aos="fade-left" data-aos-delay="800" style="color: #064789">СибНИПИ
+                    </h2>
+                    <p data-aos="fade-right" data-aos-delay="800"
+                       style="color:#427AA1;">Проектный институт</p>
+                </div>
+
+
+                <hr class="featurette-divider" data-aos="fade-left" data-aos-duration="500" >
+                <p class="lead"   data-aos="fade-up" data-aos-delay="1200" style="color:#000000;" >Проектный институт - это организация,
+                    чья главная функция заключается в проектировании зданий, сооружений и построек. Название «институт»
+                    подразумевает под собой научно-исследовательскую деятельность, постановку задач любой сложности и успешные способы их решения.
+                    Именно такой деятельностью и занимаются проектные институты, помимо своей основной практической функции.</p>
+            </div>
+            <div class="col-md-5 order-md-1" data-aos="fade-right" data-aos-delay="400" data-aos-duration="500">
+                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>
+                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
+                </svg>
+            </div>
+        </div>
+
+        <hr class="featurette-divider" data-aos="fade-left" data-aos-duration="500">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1" data-aos="fade-right" data-aos-delay="800">And lastly,
+                    this one. <span class="text-body-secondary">Checkmate.</span>
+                </h2>
+                <p class="lead" data-aos="fade-up" data-aos-delay="1200">And yes, this is the last block of
+                    representative placeholder content. Again, not really intended to be actually read, simply here to
+                    give you a better view of what this would look like with some actual content. Your content.</p>
+            </div>
+            <div class="col-md-5" data-aos="fade-left" data-aos-delay="400" data-aos-duration="500">
+                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>
+                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
+                </svg>
+            </div>
+        </div>
+        <hr class="featurette-divider" data-aos="fade-right" data-aos-duration="500">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading fw-normal lh-1" data-aos="fade-left" data-aos-delay="800">Oh yeah, it’s
+                    that good. <span
+                            class="text-body-secondary">See for yourself.</span></h2>
+                <p class="lead" data-aos="fade-up" data-aos-delay="1200">Another featurette? Of course. More placeholder
+                    content here to give you an idea of how
+                    this layout would work with some actual real-world content in place.</p>
+            </div>
+            <div class="col-md-5 order-md-1" data-aos="fade-right" data-aos-delay="400" data-aos-duration="500">
+                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>
+                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
+                </svg>
+            </div>
+        </div>
+
+        <hr class="featurette-divider" data-aos="fade-left" data-aos-duration="500">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1" data-aos="fade-right" data-aos-delay="800">And lastly,
+                    this one. <span class="text-body-secondary">Checkmate.</span>
+                </h2>
+                <p class="lead" data-aos="fade-up" data-aos-delay="1200">And yes, this is the last block of
+                    representative placeholder content. Again, not really intended to be actually read, simply here to
+                    give you a better view of what this would look like with some actual content. Your content.</p>
+            </div>
+            <div class="col-md-5" data-aos="fade-left" data-aos-delay="400" data-aos-duration="500">
+                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>
+                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
+                </svg>
+            </div>
+        </div>
+        <hr class="featurette-divider" data-aos="fade-right" data-aos-duration="500">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading fw-normal lh-1" data-aos="fade-left" data-aos-delay="800">Oh yeah, it’s
+                    that good. <span
+                            class="text-body-secondary">See for yourself.</span></h2>
+                <p class="lead" data-aos="fade-up" data-aos-delay="1200">Another featurette? Of course. More placeholder
+                    content here to give you an idea of how
+                    this layout would work with some actual real-world content in place.</p>
+            </div>
+            <div class="col-md-5 order-md-1" data-aos="fade-right" data-aos-delay="400" data-aos-duration="500">
+                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>
+                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
+                </svg>
+            </div>
+        </div>
+
+        <hr class="featurette-divider" data-aos="fade-left" data-aos-duration="500">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1" data-aos="fade-right" data-aos-delay="800">And lastly,
+                    this one. <span class="text-body-secondary">Checkmate.</span>
+                </h2>
+                <p class="lead" data-aos="fade-up" data-aos-delay="1200">And yes, this is the last block of
+                    representative placeholder content. Again, not really intended to be actually read, simply here to
+                    give you a better view of what this would look like with some actual content. Your content.</p>
+            </div>
+            <div class="col-md-5" data-aos="fade-left" data-aos-delay="400" data-aos-duration="500">
+                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>
+                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="container license">
+        <hr class="featurette-divider" data-aos="fade-left" data-aos-duration="500">
+
+        <h2  class="featurette-heading  fw-normal lh-1 text-center" style="margin-bottom: 30px" data-aos="fade-up"  data-aos-duration="500">Лицензии</h2>
+
+        <div id="myCarouselLicense" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up" data-aos-delay="400" data-aos-duration="500">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarouselLicense" data-bs-slide-to="0" class="active" aria-current="true"
+                        aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarouselLicense" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarouselLicense" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner ">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col">
+                            <img src="https://via.placeholder.com/300x500" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="col">
+                            <img src="https://via.placeholder.com/300x500" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="col">
+                            <img src="https://via.placeholder.com/300x500" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col">
+                            <img src="https://via.placeholder.com/300x500" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="col">
+                            <img src="https://via.placeholder.com/300x500" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="col">
+                            <img src="https://via.placeholder.com/300x500" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col">
+                            <img src="https://via.placeholder.com/300x500" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="col">
+                            <img src="https://via.placeholder.com/300x500" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="col">
+                            <img src="https://via.placeholder.com/300x500" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselLicense" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarouselLicense" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="container project">
+        <hr class="featurette-divider" data-aos="fade-right" data-aos-duration="500">
+
+
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer class="container">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p>&copy; 2017–2024 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        AOS.init();
+        var myCarousel = document.getElementById('myCarousel');
+        var carousel = new bootstrap.Carousel(myCarousel, {
+            interval: 5000,
+            wrap: true
+        });
+
+        myCarousel.addEventListener('slide.bs.carousel', function (event) {
+            // Get all carousel items
+            var carouselImg = myCarousel.querySelectorAll('.carousel-background');
+
+            // Add the fade-out class to all items
+            carouselImg.forEach(function (item) {
+                item.classList.add('fade-out');
+            });
+
+            // Get all carousel items
+            var carouselCaption = myCarousel.querySelectorAll('.carousel-caption');
+
+            // Add the fade-out class to all items
+            carouselCaption.forEach(function (item) {
+                item.classList.add('fade-caption-out');
+            });
+        });
+
+        myCarousel.addEventListener('slid.bs.carousel', function (event) {
+            // Get all carousel items
+            var carouselImg = myCarousel.querySelectorAll('.carousel-background');
+
+            // Remove the fade-out class and add the fade-in class after a short delay
+            setTimeout(function () {
+                carouselImg.forEach(function (item) {
+                    item.classList.remove('fade-out');
+                    item.classList.add('fade-in');
+                });
+            }, 100);
+
+            // Remove the fade-in class after the animation completes
+            setTimeout(function () {
+                carouselImg.forEach(function (item) {
+                    item.classList.remove('fade-in');
+                });
+            }, 2000);
+
+            // Get all carousel items
+            var carouselCaption = myCarousel.querySelectorAll('.carousel-caption');
+
+            // Remove the fade-out class and add the fade-in class after a short delay
+            setTimeout(function () {
+                carouselCaption.forEach(function (item) {
+                    item.classList.remove('fade-caption-out');
+                    item.classList.add('fade-caption-in');
+                });
+            }, 100);
+
+            // Remove the fade-in class after the animation completes
+            setTimeout(function () {
+                carouselCaption.forEach(function (item) {
+                    item.classList.remove('fade-caption-in');
+                });
+            }, 2000);
+        });
+
+
+    });
+</script>
+</body>
+</html>
